@@ -19,8 +19,6 @@ clear all
 %    See the License for the specific language governing permissions and
 %    limitations under the License.
 
-addpath('C:\Users\cp4u17\OneDrive - University of Southampton\Work\code\MOPSO')
-
 % parameters
 d0 = fullfile('..', '..', 'IO', 'OUT', 'GENERIC');
 tg = '20190409150503';
@@ -64,10 +62,9 @@ for jj = 1:length(p_tg)
     [~, ~, ~, p0, q0, mu0] = findEquivalentParam(simModel, simOptions);
     % fun = @(x) updateModel(x, inputRaw, indxR1, simOptions);
     fun = @(x) updateModel(x, inputRaw, indxT, indxS, simOptions);
-    opt = MOPSOoptions('Nobj', 1, 'plot', 1);
-    opt.stop = 15;
-    [x,Ygbest] = MOPSO(@(x, iter) abs(fun(x) - p_tg(jj)), 0.1*ones(1, length(indxS)+length(indxT)), ...
-        50*ones(1, length(indxS)+length(indxT)), opt);
+    opt = optimoptions('ga');
+    [x,Ygbest] = ga(@(x, iter) abs(fun(x) - p_tg(jj)),length(indxS)+length(indxT),[],[],[],[],...
+        0.1*ones(1, length(indxS)+length(indxT)),50*ones(1, length(indxS)+length(indxT)),[],[],opt);
     [~, ~, inputRaw1] = fun(x);
     simModel1 = inputSetup(inputRaw1);
     [~, ~, ~, p1, q1, mu1] = findEquivalentParam(simModel1, simOptions);

@@ -20,8 +20,6 @@ close all
 %    See the License for the specific language governing permissions and
 %    limitations under the License.
 
-addpath('C:\Users\cp4u17\OneDrive - University of Southampton\Work\code\MOPSO')
-
 % parameters
 d0 = fullfile('..', '..', 'IO', 'OUT', 'GENERIC');
 tg = '20190409150503';

@@ -24,9 +24,9 @@ if Rmax < 2e3
     [~, indxS] = intersect(inputRaw.inputS(:,2), indxR1);
     lia = ismember(inputRaw.inputT(:,2), indxR1); indxT = find(lia);
     fun = @(x) updateModel(x, inputRaw, indxT, indxS, simOptions);
-    opt = MOPSOoptions('Nobj', 1, 'plot', 0, 'saveIter', 0, 'save', 0, 'stop', 20, 'particle', 50);
-    [x,Ygbest] = MOPSO(@(x, iter) abs(fun(x) - p_tg), 0.1*ones(1, length(indxS)+length(indxT)), ...
-        Rmax*ones(1, length(indxS)+length(indxT)), opt);
+    opt = optimoptions('ga');
+    [x,Ygbest] = ga(@(x, iter) abs(fun(x) - p_tg),length(indxS)+length(indxT),[],[],[],[],...
+        0.1*ones(1, length(indxS)+length(indxT)),Rmax*ones(1, length(indxS)+length(indxT)),[],[],opt);
     if Ygbest > Ytg
         [p1, q1] = updateModel(x, inputRaw, indxT, indxS, simOptions);
         disp([p1 q1 p1/(1-q1)])
