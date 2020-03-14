@@ -1,4 +1,7 @@
 
+TOOL INSTALLATION
+Run install.m
+
 % GENERIC NETWORK GENERATION
 Run the following scripts:
  - srun_rawDT.m
