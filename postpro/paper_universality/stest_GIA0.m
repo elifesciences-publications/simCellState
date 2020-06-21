@@ -2,7 +2,7 @@ clear all
 close all
 
 % Script to analyze the GAD equivalent model and its approximations.
-% Figures of section Test Case: Steady State Distribution and Limiting Behaviour.
+% Fig.5, 6, 7, 8 in SI
 % 
 % Cristina Parigini, 14/03/2020
 % 
@@ -21,6 +21,10 @@ close all
 %    limitations under the License.
 
 addpath('../GenericNetwork')
+
+if ~exist(fullfile(pwd, 'fig'), 'dir')
+    mkdir(fullfile(pwd, 'fig'))
+end
 
 % domain
 p = 0.01:0.01:100;

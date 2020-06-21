@@ -2,6 +2,15 @@ clear all
 close all
 
 % Main driver to run the stochastic simulations.
+% set icase = 'out_ncons_20190409150503' for the GPA networks
+% set icase = 'out_cons_20190409150503' for the GIA networks
+% 
+% INPUT data files used is currently saved under io\IN\GENERIC folder:
+%  - GIA networks: out_cons_20190409150503\out_cons_20190409150503.mat
+%  - GPA networks: out_ncons_20190409150503\out_ncons_20190409150503.mat
+% Simulations OUTPUT are stored under io\IN\GENERIC, in out_cons_20190409150503
+% and out_ncons_20190409150503 folders respectively for the GIA and GPA
+% networks. 
 % 
 % Cristina Parigini, 14/03/2020
 % 
@@ -22,6 +31,7 @@ close all
 % INPUT PARAMETERS
 % ----------------
 icase = 'out_ncons_20190409150503'; Nrun = 5e4;
+% icase = 'out_cons_20190409150503'; Nrun = 5e4;
 scase = {Nrun};
 simCase = 'genericNetwork';
 simInFolder = 'GENERIC';
@@ -30,7 +40,7 @@ outDir = pwd;
 % SD0 = 123189; rng(SD0);
 SD0 = 2*round(cputime*1e3)+1; rng(SD0) % for repeatibility
 jr = rand(1,1000);
-ir = 225;
+ir = 1;
 simCellStateClone(icase, scase, simInFolder, simCase, outDir, ir, jr(ir:end));
 
 save(fullfile(outDir, 'io', 'OUT', simInFolder, icase, 'out'), 'SD0')

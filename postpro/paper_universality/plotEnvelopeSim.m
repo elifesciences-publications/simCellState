@@ -48,14 +48,17 @@ set(gca, 'Layer', 'top')
 axis(xaxis)
 xlegAllNtw = '5-95%ile';
 href = []; xlegref = [];
+for ii = 1:length(yprof)
+    hprof = plot(yprof{ii}(1,:), yprof{ii}(2,:), 'color', 'b', 'LineWidth', 1.5); % handle overwritten
+end
 switch iplot
     case 'dist_norm'
-        href = plot(xint, normpdf(xint, 1, sqrt(1/30)), 'r', 'LineWidth', 2);
+        href = plot(xint, normpdf(xint, 1, sqrt(1/30)), 'g', 'LineWidth', 2);
         xlegref = 'Normal(1, 1/30))';
         xlab = '$x$'; ylab = '$P(x)$';
         xpos = 'northeast';
     case 'dist_normSigma'
-        href = plot(xint, normpdf(xint, 0, 1), 'r', 'LineWidth', 2);
+        href = plot(xint, normpdf(xint, 0, 1), 'g', 'LineWidth', 2);
         xlegref = 'Normal(0, 1)';
         xlab = '$\tilde x$'; ylab = '$P(\tilde x)$';
         if xaxis(3) > 0
@@ -63,7 +66,7 @@ switch iplot
         end
         xpos = 'northeast';
     case 'dist_exp'
-        href = plot(xint, exppdf(xint, 1), 'r', 'LineWidth', 2);
+        href = plot(xint, exppdf(xint, 1), 'g', 'LineWidth', 2);
         xlegref = 'Exp(1)';
         xlab = '$x$'; ylab = '$P(x)$';
         if xaxis(3) > 0
@@ -74,9 +77,6 @@ switch iplot
         hleg = hMax; xleg = {xlegAllNtw};
         xlab = 't/$\tau$'; ylab = '$\bar{n}_s$';
         xpos = 'northwest';
-end
-for ii = 1:length(yprof)
-    hprof = plot(yprof{ii}(1,:), yprof{ii}(2,:), 'color', 'b', 'LineWidth', 1.5); % handle overwritten
 end
 xlabel(xlab); ylabel(ylab)
 legend([hMax hprof href], [xlegAllNtw {'Selected models'} xlegref], 'Location', xpos)

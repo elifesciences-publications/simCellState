@@ -3,6 +3,7 @@ close all
 
 % This script is run to prepare the figures for the main text.
 % Output comes from sprocess_genericSimPaper.m and srun_simGADModifiedRates.m
+% Fig.4 (a)
 % 
 % Cristina Parigini, 14/03/2020
 % 
@@ -22,8 +23,8 @@ close all
 
 % setting parameters
 icase = 0; isave = 1;
-iSimGAD = [870];
-outDir = 'C:\Users\cp4u17\OneDrive - University of Southampton\Work\code\simCellState\io\OUT\GENERIC\';
+iSimGAD = 870;
+outDir = '..\..\io\OUT\GENERIC\';
 p_tg = [0.5 1 5 10 30];
 
 % figure

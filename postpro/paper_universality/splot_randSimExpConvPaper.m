@@ -3,6 +3,7 @@ close all
 
 % This script generates the figure to show how the distribution in the GPA
 % models converge to an exponential. 
+% Fig.16 of SI
 % 
 % Cristina Parigini, 14/03/2020
 % 
@@ -22,7 +23,7 @@ close all
 
 % setting parameters
 isave = 1;
-outDir = 'C:\Users\cp4u17\OneDrive - University of Southampton\Work\code\simCellState\io\OUT\GENERIC\';
+outDir = '..\..\io\OUT\GENERIC\';
 xrange = [5 95]; % range of percentiles
 x50 = 50; % average
 xaxisDistr = [0 5 0.01 5]; iextr = 0;

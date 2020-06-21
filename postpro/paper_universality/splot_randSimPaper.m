@@ -1,8 +1,14 @@
 clear all
 close all
 
-% This script is run to prepare the figures for the main text.
-% Output comes from sprocess_genericSimPaper.m and srun_simGADModifiedRates.m
+% This script is run to prepare the figures for the main text and SI
+% Output comes from sprocess_genericSimPaper.m and
+% srun_simGADModifiedRates.m and it is currently saved under io folder.
+% 
+% Fig.2/3 (a): set icase = 0
+% Fig.2/3 (b): set icase = 2
+% Fig.4 (b): set icase = 1
+% Fig.14 (SI): set icase = 10
 % 
 % Cristina Parigini, 14/03/2020
 % 
@@ -21,11 +27,11 @@ close all
 %    limitations under the License.
 
 % setting parameters
-icase = 1; iplot = []; isave = 1; xx0Norm = [];
-iSimGAD = [94 57 30 302 870]; % [94 57 271 302 870]; % [26 122 962]; % [59 308 819 888] Out % [26 122 962] OK
-% iSimGPA = [135 163 545 773 908]; % [135 163 192 231 545 637 695 726 773 908];
+icase = 0; 
+iplot = []; isave = 0; xx0Norm = [];
+iSimGAD = [94 57 30 302 870];
 iSimGPA = [627 733 741 768 897];
-outDir = 'C:\Users\cp4u17\OneDrive - University of Southampton\Work\code\simCellState\io\OUT\GENERIC\';
+outDir = '..\..\io\OUT\GENERIC\';
 inormSigma = 0; tgOut = '';
 switch icase
     case 0 % GAD: initial networks

@@ -3,7 +3,9 @@ close all
 
 % Script to check the applicability of the equivalent model as an
 % approximation of a generic complex model.
-% Figures of section Equivalent model for complex GAD networks.
+% It also generates the figures for the SI based on the simulation
+% postprocessed results stored under io\OUT\GENERIC folder.
+% Fig.9-13
 % 
 % Cristina Parigini, 14/03/2020
 % 

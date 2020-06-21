@@ -1,9 +1,15 @@
 clear all
 close all
 
-% This script generates the figures for the paper (SI)
+% This script generates the figures for the SI
 % - Clonal dynamics: mean
 % - Clonal dynamics: distribution (sim VS master Equation)
+% Simulations are obtained running srun_asymmetricDivision.m,
+% srun_populationAsymmetryR.m and srun_populationAsymmetryM.m.
+% 
+% Fig.1: itest = [1 0 0];
+% Fig.2: itest = [0 1 0];
+% Fig.3-4: itest = [0 0 1];
 % 
 % Cristina Parigini, 14/03/2020
 % 

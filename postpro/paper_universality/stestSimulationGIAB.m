@@ -2,6 +2,7 @@ clear all
 close all
 
 % Script to run the test case for the bimodal distribution.
+% Fig.15 of SI
 % 
 % Cristina Parigini, 14/03/2020
 % 

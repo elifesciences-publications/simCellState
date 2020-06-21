@@ -3,6 +3,12 @@ close all
 
 % This script modifies the current network parameters to match the desired 
 % network parameters and run the stochastic simulations.
+% set icase = 1 to run the simulations for all the networks with a given p
+% set icase = 2 to run one specific network with a sequence of p
+% 
+% To run this script, simulations for the GIA networks must be available
+% Simulation outputs are expected in io\IN\GENERIC\out_cons_20190409150503
+% folder. They can be obtained running srun_simGADModifiedRates.m
 % 
 % Cristina Parigini, 14/03/2020
 % 
@@ -21,14 +27,19 @@ close all
 %    limitations under the License.
 
 % parameters
+icase = 2; 
 d0 = fullfile('..', '..', 'IO', 'OUT', 'GENERIC');
 tg = '20190409150503';
 outFolder = ['out_cons_' tg];
-p_tg = [0.5 1 2 5 10 30]; Rmax = 150;
-Nrun = 1e4; indx1 = []; 
-% indx = 1:1:1e3; % all sim
-% indx1 = [26 33 57]; % only specific sims
-indx = 870*ones(size(p_tg)); % [94 57 30 302 870];
+Nrun = 1e4; indx1 = [];
+switch icase 
+    case 1 % run all the simulations for a given p
+        p_tg = 30; Rmax = 150;
+        indx = 1:1:1e3; % all sim
+    case 2 % run a specific simulation for a sequence of p
+        p_tg = [0.5 1 2 5 10 30]; Rmax = 150;
+        indx = 870*ones(size(p_tg));
+end
 
 % initalization
 if length(p_tg) == 1
@@ -99,7 +110,6 @@ end
 if isempty(indx1)
     % save results
     save(fullfile(simOutFolder, 'out_ppro'), 'xout', '-v7.3')
-    
 else
      % add/replace simulations
      A = load(fullfile(simOutFolder, 'out_ppro'), 'xout');
