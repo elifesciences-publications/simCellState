@@ -20,10 +20,10 @@ To run and postprocess simulations, use the following scripts under the main and
 Additional scripts:
  - srun_simGADModifiedRates.m - to update the network parameters and re-run the simulations
  - srun_asymmetricDivision.m, srun_populationAsymmetryR.m and srun_populationAsymmetryM.m - to run simulations for SI
-Simulation output data files - postprocessed - are currently saved under io\OUT\GENERIC folder.
+Simulation output data files - postprocessed - are currently saved under io\OUT\GENERIC folder (if needed use smergeOutFiles.m to build the complete output files).
 
 % 3) FIGURE
-The script for producing the figures of the main text are:
+The scripts for producing the figures of the main text are:
  - splot_randSimPaper.m (Fig.2/3 and Fig.4 (a))
  - splot_pSensitivity.m (Fig.4 (a))
 
