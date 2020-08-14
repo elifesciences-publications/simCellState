@@ -1,3 +1,6 @@
+### This code is associated with the paper from Parigini and Greulich, "Universality of clonal dynamics poses fundamental limits to identify stem cell self-renewal strategies". eLife, 2020. http://dx.doi.org/10.7554/eLife.56532
+
+
 
 % TOOL INSTALLATION
 Run install.m
